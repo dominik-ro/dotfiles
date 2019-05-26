@@ -1,0 +1,4 @@
+#!/bin/sh
+alias v=nvim
+alias nv=nvim
+alias vim=nvim
