@@ -1,0 +1,24 @@
+#!/bin/sh
+export sleeptimer=$1
+sleeptimercancelled=0
+
+if [ -z $1 ]; then
+	sleeptimer=80
+elif [[ $1 == 'c' ]]; then
+	sleeptimercancelled=1
+fi
+
+echo Shutdown in $sleeptimer minutes.
+
+while [[ $sleeptimer -gt 0 && $sleeptimercancelled -ne 1 ]]; do
+	sleeptimer=$((sleeptimer-1))
+	if [[ $(($sleeptimer % 10)) == 0 && $sleeptimer > 0 ]]; then
+		echo "Shutdown in $sleeptimer minutes."
+	fi
+	sleep 1m
+done
+
+if [[ $sleeptimercancelled == 0 ]]; then
+	echo "Good night!"
+	i3exit suspend 
+fi

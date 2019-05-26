@@ -1,0 +1,7 @@
+!#/usr/bin
+# It is assumed that .dotfiles was set up as described here:
+# https://wiki.archlinux.org/index.php/Dotfiles#Tracking_dotfiles_directly_with_Git
+
+DOTFILES="${HOME}/.dotfiles"
+
+alias config='/usr/bin/git --git-dir="${DOTFILES}" --work-tree=$HOME'
